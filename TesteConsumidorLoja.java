@@ -25,7 +25,18 @@ public class TesteConsumidorLoja {
 
                 TextMessage textMessage = (TextMessage) message;
                 try {
-                    //message.acknowledge();
+                    var textPromotionDiasDasCriancas = "<promocao>Dia das criancas</promocao>";
+                    String[] textPromotions = new String[]{
+                            textPromotionDiasDasCriancas,
+                            "<promocao>Dia dos avós</promocao>",
+                            "<promocao>Dia dos avôs</promocao>",
+                            "<promocao>Dia de ninguém</promocao>",
+                    };
+
+                    var messageText = textMessage.getText();
+
+                    if (!messageText.contains("<promocao>Dia das criancas</promocao>")) return;
+
                     System.out.println(textMessage.getText());
 
                 } catch (JMSException e) {

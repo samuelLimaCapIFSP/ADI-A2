@@ -58,9 +58,8 @@ public class TesteProdutorFila {
                     textIdPedido + suffixPedido;
 
 
-            if (choosedLog == LogInfo.NONE && choosedPromotion.equals(textPromotionDiasDasCriancas)) {
+            if (choosedLog == LogInfo.NONE) {
                 var promotionMessage = topicSession.createTextMessage(textMessage);
-                System.out.println("enviou");
                 publisherLoja.send(promotionMessage);
             } else {
                 var logDetails = " | Apache ActiveMQ 5.12.0 (localhost, ID:Mac-mini-de-IFSP.local-49701-1443131721783-0:1) is starting";
@@ -84,7 +83,6 @@ public class TesteProdutorFila {
                 }
 
                 if (priority != -1) {
-                    System.out.println("enviou com LOG");
                     producerLog.send(logMessage, deliveryMode, priority, 5000);
                 }
             }
