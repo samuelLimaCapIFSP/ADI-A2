@@ -83,7 +83,7 @@ public class TesteProdutorFila {
                 }
 
                 if (priority != -1) {
-                    producerLog.send(logMessage, deliveryMode, priority, 5000);
+                    producerLog.send(logMessage, deliveryMode, priority, 300000);
                 }
             }
         }
